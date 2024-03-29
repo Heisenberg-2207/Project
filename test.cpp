@@ -4,7 +4,7 @@ using namespace cv;
 
 int main() {
     // Read the image file
-    Mat image = imread("image.jpg");
+    Mat image = imread("image.png");
 
     // Check if the image was successfully loaded
     if (image.empty()) {
