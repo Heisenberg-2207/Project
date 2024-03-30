@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "D:\\heisen\\IITM studies\\3rd year\\sem 6\\ID5130\\opencv\\build\\x64\\vc16\\lib",
-                "D:\\heisen\\IITM studies\\3rd year\\sem 6\\ID5130\\opencv\\build\\include"
+                "D:\\heisen\\IITM studies\\3rd year\\sem 6\\ID5130\\opencv\\build\\include",
+                "~/usr\\lib\\x86_64-linux-gnu\\openmpi\\include\\"
             ],
             "defines": [
                 "_DEBUG",
