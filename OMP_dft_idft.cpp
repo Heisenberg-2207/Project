@@ -8,7 +8,7 @@
 #include <omp.h>
 #include <time.h>
 
-#define thread_count 16
+#define thread_count 8
 
 #define M_PI 3.14159265358979323846
 
@@ -126,41 +126,54 @@ std::vector<std::vector<Complex>> idft2D(const std::vector<std::vector<Complex>>
 
 
 int main() {
-    // Example 2D signal
-
-    std::vector<std::vector<Complex>> signal, dftSignal, idftSignal;
+    /////////////////////////////////////////////////////////////////////
+    std::vector<std::vector<Complex>> signal;
+    double start, end;
 
     // Load signal from CSV file
     signal = loadSignalFromCSV("signal.csv");
+    /////////////////////////////////////////////////////////////////////
 
-    clock_t start, end;
+    /////////////////////////////////////////////////////////////////////
     start = clock();
-    // Perform 2D DFT
-    dftSignal = dft2D(signal);
 
-    // Perform inverse 2D DFT
-    idftSignal = idft2D(dftSignal);
+    // Perform 2D DFT
+    std::vector<std::vector<Complex>> dftSignal = dft2D(signal);
 
     end = clock();
 
-    //Timing
-    double duration = double((end - start) / CLOCKS_PER_SEC);
-    std::cout << "Time taken: " << duration << " seconds" << std::endl;
+    // Print the time taken for 2d dft
+    std::cout << "Time taken for parallel 2D DFT: " << (end - start) / CLOCKS_PER_SEC << "s" << std::endl;
+    /////////////////////////////////////////////////////////////////////
 
+    /////////////////////////////////////////////////////////////////////
+    // Perform inverse 2D DFT
+    start = clock();
+
+    std::vector<std::vector<Complex>> idftSignal = idft2D(dftSignal);
+
+    end = clock();
+
+    // Print the time taken for 2d dft
+    std::cout << "Time taken for parallel 2D IDFT: " << (end - start) / CLOCKS_PER_SEC << "s" << std::endl;
+    /////////////////////////////////////////////////////////////////////
+
+    /////////////////////////////////////////////////////////////////////
     // Save the IDFT signal to a CSV file
-    std::ofstream outputFile("idft_signal.csv");
-    if (outputFile.is_open()) {
-        for (const auto& row : idftSignal) {
-            for (const auto& value : row) {
-                outputFile << value.real() << ",";
-            }
-            outputFile << std::endl;
-        }
-        outputFile.close();
-        std::cout << "IDFT signal saved to idft_signal.csv" << std::endl;
-    } else {
-        std::cout << "Failed to open the output file" << std::endl;
-    }
+    // std::ofstream outputFile("idft_signal.csv");
+    // if (outputFile.is_open()) {
+    //     for (const auto& row : idftSignal) {
+    //         for (const auto& value : row) {
+    //             outputFile << value.real() << ",";
+    //         }
+    //         outputFile << std::endl;
+    //     }
+    //     outputFile.close();
+    //     std::cout << "IDFT signal saved to idft_signal.csv" << std::endl;
+    // } else {
+    //     std::cout << "Failed to open the output file" << std::endl;
+    // }
+    /////////////////////////////////////////////////////////////////////
 
     return 0;
 }
