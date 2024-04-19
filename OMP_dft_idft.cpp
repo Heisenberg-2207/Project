@@ -1,4 +1,3 @@
-// Function to load signal from a CSV file
 #include <iostream> 
 #include <fstream>
 #include <sstream>
@@ -80,7 +79,7 @@ std::vector<std::vector<Complex>> dft2D(const std::vector<std::vector<Complex>>&
     return result;
 }
 
-// Function to perform inverse 1D DFT
+// Function to perform inverse 1D IDFT
 std::vector<Complex> idft(const std::vector<Complex>& X) {
     int N = X.size();
     std::vector<Complex> x(N, 0);
