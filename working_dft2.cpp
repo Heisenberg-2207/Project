@@ -142,20 +142,20 @@ int main(int argc, char** argv) {
         //     std::cout << std::endl;
         // }
 
-        // Save dft2 array to CSV file
-        std::ofstream outfile("MPI_dft.csv");
-        if (outfile.is_open()) {
-            for (int i = 0; i < cols; i++) {
-                for (int j = 0; j < rows; j++) {
-                    outfile << dft2[i][j].real() << "," << dft2[i][j].imag() << ",";
-                }
-                outfile << std::endl;
-            }
-            outfile.close();
-        } else {
-            std::cout << "Failed to open MPI_dft.csv" << std::endl;
-            MPI_Abort(MPI_COMM_WORLD, 1);
-        }
+        // // Save dft2 array to CSV file
+        // std::ofstream outfile("MPI_dft.csv");
+        // if (outfile.is_open()) {
+        //     for (int i = 0; i < cols; i++) {
+        //         for (int j = 0; j < rows; j++) {
+        //             outfile << dft2[i][j].real() << "," << dft2[i][j].imag() << ",";
+        //         }
+        //         outfile << std::endl;
+        //     }
+        //     outfile.close();
+        // } else {
+        //     std::cout << "Failed to open MPI_dft.csv" << std::endl;
+        //     MPI_Abort(MPI_COMM_WORLD, 1);
+        // }
     }
 
     
