@@ -148,4 +148,12 @@ int main(){
 
     ///////////////////////////////////////////////////////////////
 
+    /*
+    Save the result to a CSV file
+    saveSignalToCSV(dft_signal, "OMP_result.csv");
+    saveSignalToCSV(idft_signal, "OMP_reconstructed_signal.csv");
+    */
+
+    ///////////////////////////////////////////////////////////////
+
 }

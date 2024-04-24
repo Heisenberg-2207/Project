@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
             }
             file.close();
         } else {
-            std::cout << "Failed to open input.csv" << std::endl;
+            std::cout << "Failed to open MPI_signal.csv" << std::endl;
             MPI_Abort(MPI_COMM_WORLD, 1);
         }
     }
@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
 
     // Read array from CSV file
     if (rank == 0) {
-        std::ifstream file("input.csv");
+        std::ifstream file("MPI_signal.csv");
         if (file.is_open()) {
             std::string line;
             int row = 0;
@@ -62,7 +62,7 @@ int main(int argc, char** argv) {
             }
             file.close();
         } else {
-            std::cout << "Failed to open input.csv" << std::endl;
+            std::cout << "Failed to open MPI_signal.csv" << std::endl;
             MPI_Abort(MPI_COMM_WORLD, 1);
         }
     }
@@ -135,21 +135,22 @@ int main(int argc, char** argv) {
         
         std::cout << "Time taken: " << end - start << " seconds" << std::endl;
         
-
-        // Save dft2 array to CSV file
-        std::ofstream outfile("MPI_dft.csv");
-        if (outfile.is_open()) {
+        /*
+        Save the result to a CSV file
+        std::ofstream output_file("MPI_result.csv");
+        if (output_file.is_open()) {
             for (int i = 0; i < cols; i++) {
                 for (int j = 0; j < rows; j++) {
-                    outfile << dft2[i][j].real() << "," << dft2[i][j].imag() << ",";
+                    output_file << dft2[i][j].real() << "," << dft2[i][j].imag() << ",";
                 }
-                outfile << std::endl;
+                output_file << std::endl;
             }
-            outfile.close();
+            output_file.close();
         } else {
-            std::cout << "Failed to open MPI_dft.csv" << std::endl;
+            std::cout << "Failed to open MPI_result.csv" << std::endl;
             MPI_Abort(MPI_COMM_WORLD, 1);
         }
+        */
     }
 
     
