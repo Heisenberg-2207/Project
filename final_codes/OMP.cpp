@@ -125,7 +125,7 @@ int main(){
 
     //////////////////////////////////////////////////////////////////
     
-    vector<vector<Complex>> signal = loadSignalFromCSV("signal.csv");
+    vector<vector<Complex>> signal = loadSignalFromCSV("OMP_signal.csv");
     double start, end;
 
     /////////////////////////////////////////////////////////////////
@@ -143,6 +143,8 @@ int main(){
     end = clock();
 
     cout << "Time taken for 2D IDFT: " << (end - start) / CLOCKS_PER_SEC << "s" << endl;
+
+    SaveCSV(idft_signal, "reconstructed_signal.csv");
 
     ///////////////////////////////////////////////////////////////
 
